@@ -400,6 +400,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8988cc564979744faaa15cdb8e8ed8a, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &634304218 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114095240490664840, guid: b8988cc564979744faaa15cdb8e8ed8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 634304217}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &634304219 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114502240085331748, guid: b8988cc564979744faaa15cdb8e8ed8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 634304217}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &649695447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0466744e51adc4022874b6c7b3a36823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life_pointsText: {fileID: 634304219}
+  pointsText: {fileID: 634304218}
 --- !u!224 &1524426930
 RectTransform:
   m_ObjectHideFlags: 0

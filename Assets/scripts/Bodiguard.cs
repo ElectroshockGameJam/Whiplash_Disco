@@ -8,6 +8,8 @@ public class Bodiguard : MonoBehaviour {
 	{
 		if (collision.gameObject.CompareTag ("Enemy")) {
 			Destroy (collision.gameObject);
+			ScoreManager.scoreManager.addCoins();
+			ScoreManager.scoreManager.addPoint();
 		}
 	}
 

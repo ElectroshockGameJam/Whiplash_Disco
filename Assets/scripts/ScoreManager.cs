@@ -27,6 +27,23 @@ public class ScoreManager : MonoBehaviour {
 		//coinsText.text = coins + "";
 	}
 
+	public void addPoint(){
+		points += 1;
+		pointsText.text = points + "";
+	}
+
+	public int getPoints(){
+		return points;
+	}
+
+	public void addCoins(){
+		coins += Random.Range(0, 6);
+	}
+
+	public int getCoins(){
+		return coins;
+	}
+
 	public void decreaseLifePoints(){
 		life_points--;
 		life_pointsText.text = life_points + "";
