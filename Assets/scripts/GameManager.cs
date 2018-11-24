@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		diff = countdown;
+		diff = 0;
 		counterEnemys = 0;
 	}
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
 
 			counterEnemys++;
 
-			countdown *= 0.95f;
+			countdown *= 0.99f;
 			diff = countdown;
 
 			Debug.Log ("New Diff: " + diff);
