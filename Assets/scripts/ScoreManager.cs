@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour {
 
     public static ScoreManager scoreManager;
     public Text life_pointsText;
-    //public Text coinsText;
+    public Text coinsText;
     public Text pointsText;
     private int life_points = 4;
     private int coins = 0;
@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour {
 		}
 		life_pointsText.text = life_points + "";
 		pointsText.text = points + ""; 
-		//coinsText.text = coins + "";
+		coinsText.text = coins + "";
 	}
 
 	public void addPoint(){
@@ -38,6 +38,7 @@ public class ScoreManager : MonoBehaviour {
 
 	public void addCoins(){
 		coins += Random.Range(0, 6);
+        coinsText.text = coins.ToString();
 	}
 
 	public int getCoins(){
