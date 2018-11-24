@@ -24,6 +24,8 @@ public class Barman : MonoBehaviour {
     public float superWhipBonus;
     private int superWhipLevel = 1;
 
+    public static bool storeOpen = false;
+
     // Use this for initialization
     void Start () {
         canvas.gameObject.SetActive(false);
@@ -45,9 +47,11 @@ public class Barman : MonoBehaviour {
             {
                 canvas.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                storeOpen = true;
             }
             else
             {
+                storeOpen = false;
                 obrirTenda.gameObject.SetActive(true);
                 canvas.gameObject.SetActive(false);
                 Time.timeScale = 1;
@@ -86,7 +90,7 @@ public class Barman : MonoBehaviour {
             else
             {
                 superSpeedPriceText.text = (superSpeedPrice * superSpeedLevel).ToString();
-                superSpeed.GetComponentInChildren<Text>().text = "Super Velocitat x" + superSpeedLevel;
+                superSpeed.GetComponentInChildren<Text>().text = "Super Velocitat " + superSpeedLevel;
             }
         }
     }
@@ -110,7 +114,7 @@ public class Barman : MonoBehaviour {
             } else
             {
                 superWhipPriceText.text = (superWhipPrice * superWhipLevel).ToString();
-                superWhip.GetComponentInChildren<Text>().text = "Super Fuet x" + superWhipLevel;
+                superWhip.GetComponentInChildren<Text>().text = "Super Fuet " + superWhipLevel;
             }
         }
     }

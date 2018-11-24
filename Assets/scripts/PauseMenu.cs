@@ -26,7 +26,13 @@ public class PauseMenu : MonoBehaviour {
                 Time.timeScale = 0;
             } else
             {
-                Resume();
+                if (Barman.storeOpen)
+                {
+                    canvas.gameObject.SetActive(false);
+                } else
+                {
+                    Resume();
+                }
             }
             
         }    
