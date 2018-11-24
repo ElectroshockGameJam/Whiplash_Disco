@@ -46,7 +46,7 @@ public class ScoreManager : MonoBehaviour {
 
     public bool buyPowerup(int price)
     {
-        if (price > coins)
+        if (price < coins)
         {
             coins -= price;
             return true;
