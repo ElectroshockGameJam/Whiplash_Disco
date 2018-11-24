@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour {
 			Rigidbody obj = (Rigidbody) Instantiate (enemys[objectInd], respawnPsitions [transfInd].position, Quaternion.identity);
             obj.gameObject.GetComponent<MoveTo>().goal = Player;
             obj.isKinematic = true;
+            obj.gameObject.GetComponent<EnemyAnimation>().player = Player;
 		
 
 			obj.name = " "+Time.deltaTime;
