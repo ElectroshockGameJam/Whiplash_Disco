@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageController : MonoBehaviour {
-	private float life_points = 100f;
 	private float timer = 1f;
 
 	private void Update(){
@@ -20,11 +19,10 @@ public class DamageController : MonoBehaviour {
 
 	private void updateLife( Collider collision ){
 		if( collision.gameObject.CompareTag( "Enemy" ) && timer >= 1f ){
-			life_points -= 25;
+			ScoreManager.scoreManager.decreaseLifePoints();
 			timer = 0;
-			Debug.Log( life_points );
 
-			if( life_points <= 0 ){
+			if( ScoreManager.scoreManager.getLifePoints() <= 0 ){
 
 			}
 		}
