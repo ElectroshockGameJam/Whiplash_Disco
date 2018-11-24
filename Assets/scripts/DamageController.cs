@@ -22,7 +22,6 @@ public class DamageController : MonoBehaviour {
 		if( collision.gameObject.CompareTag( "Enemy" ) && timer >= 1f ){
 			life_points -= 25;
 			timer = 0;
-
 			Debug.Log( life_points );
 
 			if( life_points <= 0 ){
