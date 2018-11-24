@@ -44,6 +44,18 @@ public class ScoreManager : MonoBehaviour {
 		return coins;
 	}
 
+    public bool buyPowerup(int price)
+    {
+        if (price > coins)
+        {
+            coins -= price;
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
 	public void decreaseLifePoints(){
 		life_points--;
 		life_pointsText.text = life_points + "";
