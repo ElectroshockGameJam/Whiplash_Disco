@@ -5,37 +5,39 @@ public class Whip : MonoBehaviour
 {
 
     public CapsuleCollider capsule;
-    public float force;
-    public float knockback;
+    public float maxForce;
+    public float minForce;
+    public float minKnockback;
+    public float maxKnockback;
     public float chargeTime;
-    float currCountdownValue;
-    bool charged;
+    private float currCountdownValue;
+    private float timeCharged;
+    private bool charging = false;
 
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(chargeWhip());
-        } else if (Input.GetKeyUp(KeyCode.Space))
+            if (!charging)
+            {
+                StartCoroutine(chargeWhip());
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (charged)
-            {
-                charged = false;
-                DetectCollision();
-            }
-            else
-            {
-                StopCoroutine(chargeWhip());
-            }
+            StopCoroutine(chargeWhip());
+            DetectCollision();
+            timeCharged = 0.0f;
+            charging = false;
         }
     }
 
-    void DetectCollision()
+    private void DetectCollision()
     {
         var colliders = OverlapCapsule(capsule);
         foreach (var collider in colliders)
         {
-            if (collider != capsule && collider.gameObject != this.gameObject && collider.gameObject.CompareTag( "Enemy" ))
+            if (collider != capsule && collider.gameObject != this.gameObject && collider.gameObject.CompareTag("Enemy"))
             {
                 Rigidbody rb = collider.gameObject.GetComponent<Rigidbody>();
                 if (rb)
@@ -46,27 +48,18 @@ public class Whip : MonoBehaviour
         }
     }
 
-    void setForce(float force)
-    {
-        this.force = force;
-    }
-
-    void setKnockback(float knockback)
-    {
-        this.knockback = knockback;
-    }
-
-    void ApplyForce(Rigidbody rb)
+    private void ApplyForce(Rigidbody rb)
     {
         Vector3 playerPos = this.transform.position;
         Vector3 enemyPos = rb.transform.position;
         Vector3 forceDir = enemyPos - playerPos;
-        Vector3.Normalize(forceDir);
-
-        rb.AddForce(forceDir.x * force, knockback, forceDir.z * force, ForceMode.Impulse);
+        forceDir = Vector3.Normalize(forceDir);
+        float force = MapRange(timeCharged, 0.0f, chargeTime, minForce, maxForce);
+        float knock = MapRange(timeCharged, 0.0f, chargeTime, minKnockback, maxKnockback);
+        rb.AddForce(forceDir.x * force, forceDir.y * knock, forceDir.z * force, ForceMode.Impulse);
     }
 
-    public static Collider[] OverlapCapsule(CapsuleCollider capsule, int layerMask = Physics.DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal)
+    private static Collider[] OverlapCapsule(CapsuleCollider capsule, int layerMask = Physics.DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal)
     {
         Vector3 point0, point1;
         float radius;
@@ -74,7 +67,7 @@ public class Whip : MonoBehaviour
         return Physics.OverlapCapsule(point0, point1, radius, layerMask, queryTriggerInteraction);
     }
 
-    public static void ToWorldSpaceCapsule(CapsuleCollider capsule, out Vector3 point0, out Vector3 point1, out float radius)
+    private static void ToWorldSpaceCapsule(CapsuleCollider capsule, out Vector3 point0, out Vector3 point1, out float radius)
     {
         var center = capsule.transform.TransformPoint(capsule.center);
         radius = 0f;
@@ -117,9 +110,19 @@ public class Whip : MonoBehaviour
 
     private IEnumerator chargeWhip()
     {
-        charged = false;
-        yield return new WaitForSeconds(chargeTime);
-        charged = true;
+        timeCharged = 0.0f;
+        charging = true;
+        while (timeCharged < chargeTime)
+        {
+            yield return new WaitForSeconds(0.1f);
+            timeCharged += 0.1f;
+        }
     }
+
+    private static float MapRange(float value, float leftMin, float leftMax, float rightMin, float rightMax)
+    {
+        return rightMin + (value - leftMin) * (rightMax - rightMin) / (leftMax - leftMin);
+    }
+
 
 }

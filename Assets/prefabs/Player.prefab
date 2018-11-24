@@ -239,9 +239,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capsule: {fileID: 136924740723803668}
-  force: 3000
-  knockback: 500
-  chargeTime: 0.5
+  maxForce: 20000
+  minForce: 6000
+  minKnockback: 4000
+  maxKnockback: 8000
+  chargeTime: 2
 --- !u!136 &136579416115832530
 CapsuleCollider:
   m_ObjectHideFlags: 1
