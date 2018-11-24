@@ -355,7 +355,7 @@ MonoBehaviour:
   minKnockback: 4000
   maxKnockback: 8000
   chargeTime: 2
-  stunTime: 1.5
+  stunTime: 0.05
   charging: 0
   audiosource: {fileID: 82675651683872734}
   audioCharging: {fileID: 8300000, guid: 730b46fc14f009c42a6efe7f9c172e05, type: 3}
