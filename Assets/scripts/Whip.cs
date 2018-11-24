@@ -16,12 +16,19 @@ public class Whip : MonoBehaviour
     private float currCountdownValue;
     private bool holdingCharge = false;
     [HideInInspector] public bool charging = false;
+    public AudioSource audiosource;
+    public AudioClip audioCharging;
+    public AudioClip audioWhip;
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 5"))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 5")) && !charging)
         {
             Debug.Log("whip!");
+
+            audiosource.clip = audioCharging;
+            audiosource.Play();
+
             if (!holdingCharge)
             {
                 StartCoroutine(chargeWhip());
@@ -136,6 +143,10 @@ public class Whip : MonoBehaviour
         }
 
         DetectCollision(timeCharged);
+
+        audiosource.clip = audioWhip;
+        audiosource.Play();
+
         charging = false;
     }
 
