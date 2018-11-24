@@ -1,16 +1,32 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Whip : MonoBehaviour
 {
 
     public CapsuleCollider capsule;
     public float force;
+    public float knockback;
+    public float chargeTime;
+    float currCountdownValue;
+    bool charged;
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            DetectCollision();
+            StartCoroutine(chargeWhip());
+        } else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (charged)
+            {
+                charged = false;
+                DetectCollision();
+            }
+            else
+            {
+                StopCoroutine(chargeWhip());
+            }
         }
     }
 
@@ -30,6 +46,16 @@ public class Whip : MonoBehaviour
         }
     }
 
+    void setForce(float force)
+    {
+        this.force = force;
+    }
+
+    void setKnockback(float knockback)
+    {
+        this.knockback = knockback;
+    }
+
     void ApplyForce(Rigidbody rb)
     {
         Vector3 playerPos = this.transform.position;
@@ -37,7 +63,7 @@ public class Whip : MonoBehaviour
         Vector3 forceDir = enemyPos - playerPos;
         Vector3.Normalize(forceDir);
 
-        rb.AddForce(forceDir.x * force, forceDir.y * force, forceDir.z * force, ForceMode.Impulse);
+        rb.AddForce(forceDir.x * force, knockback, forceDir.z * force, ForceMode.Impulse);
     }
 
     public static Collider[] OverlapCapsule(CapsuleCollider capsule, int layerMask = Physics.DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal)
@@ -87,6 +113,13 @@ public class Whip : MonoBehaviour
     private static Vector3 AbsVec3(Vector3 v)
     {
         return new Vector3(Mathf.Abs(v.x), Mathf.Abs(v.y), Mathf.Abs(v.z));
+    }
+
+    private IEnumerator chargeWhip()
+    {
+        charged = false;
+        yield return new WaitForSeconds(chargeTime);
+        charged = true;
     }
 
 }
