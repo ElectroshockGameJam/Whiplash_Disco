@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         diff = 0;
         counterEnemys = 0;
         actualLevel = 1;
+        waveText.text = "";
         waveState = WaveStatus.spawn;
     }
 
@@ -97,7 +98,8 @@ public class GameManager : MonoBehaviour
             obj.gameObject.GetComponent<MoveTo>().goal = Player;
             obj.isKinematic = true;
 
-
+            obj.gameObject.GetComponent<EnemyAnimation>().player = Player;
+		
             obj.name = " " + Time.deltaTime;
 
             obj.gameObject.SetActive(true);

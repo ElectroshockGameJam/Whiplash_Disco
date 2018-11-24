@@ -90,7 +90,7 @@ public class Barman : MonoBehaviour {
             else
             {
                 superSpeedPriceText.text = (superSpeedPrice * superSpeedLevel).ToString();
-                superSpeed.GetComponentInChildren<Text>().text = "Super Velocitat " + superSpeedLevel;
+                superSpeed.GetComponentInChildren<Text>().text = "Super Velocity " + superSpeedLevel;
             }
         }
     }
@@ -114,7 +114,7 @@ public class Barman : MonoBehaviour {
             } else
             {
                 superWhipPriceText.text = (superWhipPrice * superWhipLevel).ToString();
-                superWhip.GetComponentInChildren<Text>().text = "Super Fuet " + superWhipLevel;
+                superWhip.GetComponentInChildren<Text>().text = "Super Whip " + superWhipLevel;
             }
         }
     }

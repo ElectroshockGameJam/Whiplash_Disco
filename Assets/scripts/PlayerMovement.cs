@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		int rotationValue;
 
-        if (!WhipScript.charging)
+        if (!WhipScript.charging && !ScoreManager.scoreManager.gameOver)
         {
             //Code for moving inside the scene
             if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") > 0.3)
