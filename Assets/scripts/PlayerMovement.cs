@@ -16,8 +16,6 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		int rotationValue;
 
-		if( Input.GetAxis("Vertical_View") > 0.5 ) Debug.Log("Action");
-
 		//Code for moving inside the scene
 		if( Input.GetKey( KeyCode.A ) || Input.GetAxis("Horizontal") > 0.3 ){
 			gameObject.transform.Translate( -speed * Time.deltaTime, 0, 0 );

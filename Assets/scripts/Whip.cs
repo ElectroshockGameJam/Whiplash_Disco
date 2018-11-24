@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Whip : MonoBehaviour
 {
@@ -10,20 +11,22 @@ public class Whip : MonoBehaviour
     public float minKnockback;
     public float maxKnockback;
     public float chargeTime;
+    public float stunTime;
     private float currCountdownValue;
     private float timeCharged;
     private bool charging = false;
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 5"))
         {
+            Debug.Log("whip!");
             if (!charging)
             {
                 StartCoroutine(chargeWhip());
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp("joystick button 5"))
         {
             StopCoroutine(chargeWhip());
             DetectCollision();
@@ -50,6 +53,10 @@ public class Whip : MonoBehaviour
 
     private void ApplyForce(Rigidbody rb)
     {
+        rb.gameObject.GetComponent<MoveTo>().enabled = false;
+        rb.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        rb.isKinematic = false;
+
         Vector3 playerPos = this.transform.position;
         Vector3 enemyPos = rb.transform.position;
         Vector3 forceDir = enemyPos - playerPos;
@@ -57,6 +64,9 @@ public class Whip : MonoBehaviour
         float force = MapRange(timeCharged, 0.0f, chargeTime, minForce, maxForce);
         float knock = MapRange(timeCharged, 0.0f, chargeTime, minKnockback, maxKnockback);
         rb.AddForce(forceDir.x * force, forceDir.y * knock, forceDir.z * force, ForceMode.Impulse);
+        //rb.AddRelativeForce(forceDir.x * force, forceDir.y * knock, forceDir.z * force, ForceMode.Impulse);
+
+        StartCoroutine(enemyAgentEnable(rb));
     }
 
     private static Collider[] OverlapCapsule(CapsuleCollider capsule, int layerMask = Physics.DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal)
@@ -124,5 +134,11 @@ public class Whip : MonoBehaviour
         return rightMin + (value - leftMin) * (rightMax - rightMin) / (leftMax - leftMin);
     }
 
-
+    private IEnumerator enemyAgentEnable(Rigidbody rb)
+    {
+        yield return new WaitForSeconds(stunTime);
+        rb.isKinematic = true;
+        rb.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        rb.gameObject.GetComponent<MoveTo>().enabled = true;
+    }
 }
