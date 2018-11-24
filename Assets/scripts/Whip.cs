@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class Whip : MonoBehaviour
 {
+    public float minChargeTime = 0.5f;
 
     public CapsuleCollider capsule;
     public float maxForce;
@@ -13,29 +14,26 @@ public class Whip : MonoBehaviour
     public float chargeTime;
     public float stunTime;
     private float currCountdownValue;
-    private float timeCharged;
-    private bool charging = false;
+    private bool holdingCharge = false;
+    [HideInInspector] public bool charging = false;
 
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 5"))
         {
             Debug.Log("whip!");
-            if (!charging)
+            if (!holdingCharge)
             {
                 StartCoroutine(chargeWhip());
             }
         }
         else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp("joystick button 5"))
         {
-            StopCoroutine(chargeWhip());
-            DetectCollision();
-            timeCharged = 0.0f;
-            charging = false;
+            holdingCharge = false;
         }
     }
 
-    private void DetectCollision()
+    private void DetectCollision(float timeCharged)
     {
         var colliders = OverlapCapsule(capsule);
         foreach (var collider in colliders)
@@ -45,13 +43,13 @@ public class Whip : MonoBehaviour
                 Rigidbody rb = collider.gameObject.GetComponent<Rigidbody>();
                 if (rb)
                 {
-                    ApplyForce(rb);
+                    ApplyForce(rb, timeCharged);
                 }
             }
         }
     }
 
-    private void ApplyForce(Rigidbody rb)
+    private void ApplyForce(Rigidbody rb, float timeCharged)
     {
         rb.gameObject.GetComponent<MoveTo>().enabled = false;
         rb.gameObject.GetComponent<NavMeshAgent>().enabled = false;
@@ -120,13 +118,25 @@ public class Whip : MonoBehaviour
 
     private IEnumerator chargeWhip()
     {
-        timeCharged = 0.0f;
+        float timeCharged = 0.0f;
+        holdingCharge = true;
         charging = true;
-        while (timeCharged < chargeTime)
+        while (holdingCharge)
         {
             yield return new WaitForSeconds(0.1f);
             timeCharged += 0.1f;
         }
+
+        if (timeCharged > chargeTime)
+            timeCharged = chargeTime;
+        else if (timeCharged < minChargeTime)
+        {
+            yield return new WaitForSeconds(minChargeTime - timeCharged);
+            timeCharged = minChargeTime;
+        }
+
+        DetectCollision(timeCharged);
+        charging = false;
     }
 
     private static float MapRange(float value, float leftMin, float leftMax, float rightMin, float rightMax)
