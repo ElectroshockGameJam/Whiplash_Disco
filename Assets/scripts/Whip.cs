@@ -35,7 +35,7 @@ public class Whip : MonoBehaviour
         var colliders = OverlapCapsule(capsule);
         foreach (var collider in colliders)
         {
-            if (collider != capsule && collider.gameObject != this.gameObject)
+            if (collider != capsule && collider.gameObject != this.gameObject && collider.gameObject.CompareTag( "Enemy" ))
             {
                 Rigidbody rb = collider.gameObject.GetComponent<Rigidbody>();
                 if (rb)
