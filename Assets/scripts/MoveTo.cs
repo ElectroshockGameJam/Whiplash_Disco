@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class MoveTo : MonoBehaviour
 {
 
-	public Transform goal;
+    [HideInInspector] public Transform goal;
 	private NavMeshAgent agent;
 	public int counter;
 	private int diffCounter;

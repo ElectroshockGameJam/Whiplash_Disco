@@ -6,29 +6,38 @@ public class PlayerMovement : MonoBehaviour {
 	private enum Position {FRONT, BACK, LEFT, RIGHT};
 	public float speed;
 	private Position pos = Position.FRONT;
-	
+
+    private Whip WhipScript;	
 
 	// Use this for initialization
 	void Start ( ) {
+        WhipScript = GetComponentInChildren<Whip>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		int rotationValue;
 
-		//Code for moving inside the scene
-		if( Input.GetKey( KeyCode.A ) || Input.GetAxis("Horizontal") > 0.3 ){
-			gameObject.transform.Translate( -speed * Time.deltaTime, 0, 0 );
-		}
-		if( Input.GetKey( KeyCode.D ) || Input.GetAxis("Horizontal") < -0.3 ){
-			gameObject.transform.Translate( speed * Time.deltaTime, 0, 0 );
-		}
-		if( Input.GetKey( KeyCode.W ) || Input.GetAxis("Vertical") > 0.3 ){
-			gameObject.transform.Translate( 0, 0, speed * Time.deltaTime );
-		}
-		if( Input.GetKey( KeyCode.S ) || Input.GetAxis("Vertical") < -0.3 ){
-			gameObject.transform.Translate( 0, 0, -speed * Time.deltaTime );
-		}
+        if (!WhipScript.charging)
+        {
+            //Code for moving inside the scene
+            if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") > 0.3)
+            {
+                gameObject.transform.Translate(-speed * Time.deltaTime, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") < -0.3)
+            {
+                gameObject.transform.Translate(speed * Time.deltaTime, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0.3)
+            {
+                gameObject.transform.Translate(0, 0, speed * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < -0.3)
+            {
+                gameObject.transform.Translate(0, 0, -speed * Time.deltaTime);
+            }
+        }
 
 		//Code for changing the player orientation
 		if( ( Input.GetKey("up") || Input.GetAxis("Vertical_View") > 0.3 ) && pos != Position.BACK ){
