@@ -21,7 +21,7 @@ public class MoveTo : MonoBehaviour
 		
 		diffCounter--;
 		if (diffCounter <= 0) {
-			goal = GameObject.FindGameObjectWithTag ("objective").gameObject.transform;
+			//goal = GameObject.FindGameObjectWithTag ("Player").gameObject.transform;
 
 			agent.SetDestination (goal.position);
 			diffCounter = counter ;

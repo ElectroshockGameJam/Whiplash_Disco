@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	public Rigidbody [] enemys;
 
 
+    public Transform Player;
 	public float speed;
 	public float factor;
 
@@ -37,11 +38,12 @@ public class GameManager : MonoBehaviour {
 
 			Debug.Log ("New Diff: " + diff);
 
-			int transfInd = Random.Range (0, 100) % respawnPsitions.Length;
-			int objectInd = Random.Range (0, 100) % enemys.Length;
+			int transfInd = Random.Range(0, respawnPsitions.Length);
+			int objectInd = Random.Range(0, enemys.Length);
 
 			Rigidbody obj = (Rigidbody) Instantiate (enemys[objectInd], respawnPsitions [transfInd].position, Quaternion.identity);
-			obj.isKinematic = true;
+            obj.gameObject.GetComponent<MoveTo>().goal = Player;
+            obj.isKinematic = true;
 		
 
 			obj.name = " "+Time.deltaTime;
