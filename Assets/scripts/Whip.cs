@@ -19,9 +19,13 @@ public class Whip : MonoBehaviour
         var colliders = OverlapCapsule(capsule);
         foreach (var collider in colliders)
         {
-            if (collider != capsule)
+            if (collider != capsule && collider.gameObject != this.gameObject)
             {
-                ApplyForce(collider.attachedRigidbody);
+                Rigidbody rb = collider.gameObject.GetComponent<Rigidbody>();
+                if (rb)
+                {
+                    ApplyForce(rb);
+                }
             }
         }
     }
@@ -30,8 +34,10 @@ public class Whip : MonoBehaviour
     {
         Vector3 playerPos = this.transform.position;
         Vector3 enemyPos = rb.transform.position;
+        Vector3 forceDir = enemyPos - playerPos;
+        Vector3.Normalize(forceDir);
 
-        rb.AddForce(0, force / 2, force, ForceMode.Impulse);
+        rb.AddForce(forceDir.x * force, forceDir.y * force, forceDir.z * force, ForceMode.Impulse);
     }
 
     public static Collider[] OverlapCapsule(CapsuleCollider capsule, int layerMask = Physics.DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal)
