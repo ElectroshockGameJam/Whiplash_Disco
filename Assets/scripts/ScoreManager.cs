@@ -55,6 +55,7 @@ public class ScoreManager : MonoBehaviour {
         if (price < coins)
         {
             coins -= price;
+            coinsText.text = coins.ToString();
             return true;
         } else
         {
