@@ -20,7 +20,7 @@ public class Whip : MonoBehaviour
     public AudioClip audioCharging;
     public AudioClip audioWhip;
 
-    void FixedUpdate()
+    void Update()
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 5")) && !charging)
         {

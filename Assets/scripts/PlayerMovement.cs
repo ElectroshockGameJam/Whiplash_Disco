@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         if (Time.timeScale == 0.0f)
             return;
 
