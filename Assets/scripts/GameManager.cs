@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     private WaveStatus waveState;
     private int enemiesToEndWave, counterEnemys;
 
+    public PlayVideo video;
+
     private float diff;
     // Use this for initialization
     void Start()
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
         switch (waveState)
         {
             case WaveStatus.prepare:
+                video.StartVideo();
                 waveText.text = "Prepare for the next wave...";
                 StartCoroutine( PrepareWave() );
                 actualLevel++;
@@ -75,6 +78,7 @@ public class GameManager : MonoBehaviour
             i--;
         }
         waveText.text = "";
+        video.PauseVideo();
         waveState = WaveStatus.spawn;
     }
 
