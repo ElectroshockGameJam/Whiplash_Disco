@@ -17,10 +17,11 @@ public class Bodiguard : MonoBehaviour {
             Destroy (collision.gameObject);
 			ScoreManager.scoreManager.addCoins();
 			ScoreManager.scoreManager.addPoint();
+            int random = Random.Range( 0, 6 );
+            Debug.Log( random );
+            if ( random == 0 ) generatePowerUp();
             audiosource.clip = audioScream;
             audiosource.Play();
-
-            if ( Random.Range( 0, 6 ) == 0 ) generatePowerUp();
 		}
     }
 
