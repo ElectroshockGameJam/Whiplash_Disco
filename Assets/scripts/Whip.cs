@@ -26,13 +26,12 @@ public class Whip : MonoBehaviour
         {
             Debug.Log("whip!");
 
+            holdingCharge = true;
+            charging = true;
             audiosource.clip = audioCharging;
             audiosource.Play();
-
-            if (!holdingCharge)
-            {
-                StartCoroutine(chargeWhip());
-            }
+            
+            StartCoroutine(chargeWhip());
         }
         else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp("joystick button 5"))
         {
@@ -126,8 +125,6 @@ public class Whip : MonoBehaviour
     private IEnumerator chargeWhip()
     {
         float timeCharged = 0.0f;
-        holdingCharge = true;
-        charging = true;
         while (holdingCharge)
         {
             yield return new WaitForSeconds(0.1f);
@@ -140,6 +137,7 @@ public class Whip : MonoBehaviour
         {
             yield return new WaitForSeconds(minChargeTime - timeCharged);
             timeCharged = minChargeTime;
+            Debug.Log(timeCharged);
         }
 
         DetectCollision(timeCharged);
