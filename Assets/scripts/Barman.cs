@@ -14,6 +14,8 @@ public class Barman : MonoBehaviour {
     public Text superWhipPriceText;
     public Button superWhip;
     public TextMesh obrirTenda;
+    public Button megaWhip;
+    public Text megaWhipPriceText;
     private bool isInBar;
 
     public int superSpeedPrice;
@@ -24,6 +26,9 @@ public class Barman : MonoBehaviour {
     public float superWhipBonus;
     private int superWhipLevel = 1;
 
+    public int megaWhipPrice;
+    private int megaWhipLevel = 1;
+
     public static bool storeOpen = false;
 
     // Use this for initialization
@@ -32,10 +37,12 @@ public class Barman : MonoBehaviour {
         obrirTenda.gameObject.SetActive(false);
         superSpeed.onClick.AddListener(SuperSpeed);
         superWhip.onClick.AddListener(SuperWhip);
+        megaWhip.onClick.AddListener(MegaWhip);
         isInBar = false;
 
         superSpeedPriceText.text = superSpeedPrice.ToString();
         superWhipPriceText.text = superWhipPrice.ToString();
+        megaWhipPriceText.text = megaWhipPrice.ToString();
     }
 	
 	// Update is called once per frame
@@ -115,6 +122,27 @@ public class Barman : MonoBehaviour {
             {
                 superWhipPriceText.text = (superWhipPrice * superWhipLevel).ToString();
                 superWhip.GetComponentInChildren<Text>().text = "Super Whip " + superWhipLevel;
+            }
+        }
+    }
+
+    private void MegaWhip()
+    {
+        if (megaWhipLevel < maxLevels && ScoreManager.scoreManager.buyPowerup(megaWhipLevel * megaWhipPrice))
+        {
+            CapsuleCollider capsule = player.GetComponentInChildren<CapsuleCollider>();
+            capsule.height += megaWhipLevel;
+            Vector3 center = new Vector3(capsule.center.x, capsule.center.y, -(capsule.height / 2));
+            capsule.center = center;
+            megaWhipLevel++;
+            if (megaWhipLevel >= maxLevels)
+            {
+                DisableButton(megaWhip);
+            }
+            else
+            {
+                megaWhipPriceText.text = (megaWhipPrice * megaWhipLevel).ToString();
+                megaWhip.GetComponentInChildren<Text>().text = "Mega Whip " + megaWhipLevel;
             }
         }
     }
