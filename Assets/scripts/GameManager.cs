@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
     public Text waveText;
     public Transform[] respawnPsitions;
     public Rigidbody[] enemys;
