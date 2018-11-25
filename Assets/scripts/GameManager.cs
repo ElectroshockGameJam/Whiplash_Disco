@@ -39,14 +39,14 @@ public class GameManager : MonoBehaviour
         {
             case WaveStatus.prepare:
                 waveText.text = "Prepare for the next wave...";
-                StartCoroutine(PrepareWave());
+                StartCoroutine( PrepareWave() );
                 actualLevel++;
                 waveState = WaveStatus.preparing;
                 break;
             case WaveStatus.preparing:
                 break;
             case WaveStatus.spawn:
-                StartCoroutine(SpawnWave());
+                StartCoroutine( SpawnWave() );
                 waveState = WaveStatus.spawning;
                 break;
             case WaveStatus.spawning:
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             obj.name = " " + Time.deltaTime;
 
             obj.gameObject.SetActive(true);
-            yield return new WaitForSeconds(6.0f);
+            yield return new WaitForSeconds( speed );
             spawned++;
         }
 

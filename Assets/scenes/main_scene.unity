@@ -112,6 +112,115 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 3dfe22f58518a5543a195d638f3993bf, type: 2}
+--- !u!1 &22866014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 22866015}
+  - component: {fileID: 22866016}
+  m_Layer: 0
+  m_Name: EnemyesScream
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22866015
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22866014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 478499193}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &22866016
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22866014}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &51363058
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +324,7 @@ MonoBehaviour:
   enemys:
   - {fileID: 54562729759678618, guid: f8d3031e30c86ba44b3ffbce7dd1e363, type: 2}
   Player: {fileID: 1560840974}
-  speed: 2
+  speed: 6
   factor: 2
   countdown: 10
 --- !u!4 &101002300
@@ -841,6 +950,7 @@ Transform:
   - {fileID: 1475069283}
   - {fileID: 2012943626}
   - {fileID: 1317114445}
+  - {fileID: 22866015}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1617,6 +1727,8 @@ MonoBehaviour:
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
   gameManager: {fileID: 101002299}
+  audiosource: {fileID: 22866016}
+  audioScream: {fileID: 8300000, guid: a25bf018f2b934972b46294168cbc7ad, type: 3}
 --- !u!65 &843981040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1987,6 +2099,8 @@ MonoBehaviour:
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
   gameManager: {fileID: 101002299}
+  audiosource: {fileID: 22866016}
+  audioScream: {fileID: 8300000, guid: a25bf018f2b934972b46294168cbc7ad, type: 3}
 --- !u!65 &1083839193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2295,6 +2409,8 @@ MonoBehaviour:
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
   gameManager: {fileID: 101002299}
+  audiosource: {fileID: 0}
+  audioScream: {fileID: 0}
 --- !u!1001 &1339516384
 Prefab:
   m_ObjectHideFlags: 0
@@ -2732,6 +2848,8 @@ MonoBehaviour:
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
   gameManager: {fileID: 101002299}
+  audiosource: {fileID: 22866016}
+  audioScream: {fileID: 8300000, guid: a25bf018f2b934972b46294168cbc7ad, type: 3}
 --- !u!65 &1475069285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3338,7 +3456,7 @@ MonoBehaviour:
   charging: 0
   audiosource: {fileID: 165155029}
   audioCharging: {fileID: 8300000, guid: 730b46fc14f009c42a6efe7f9c172e05, type: 3}
-  audioWhip: {fileID: 8300000, guid: b3c71c6345dd1a2489dbbe54f3add6ea, type: 3}
+  audioWhip: {fileID: 8300000, guid: e1caaa0dc2e2d40358793166c2c050c3, type: 3}
 --- !u!136 &1707441113
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3933,6 +4051,8 @@ MonoBehaviour:
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
   gameManager: {fileID: 101002299}
+  audiosource: {fileID: 22866016}
+  audioScream: {fileID: 8300000, guid: a25bf018f2b934972b46294168cbc7ad, type: 3}
 --- !u!65 &2012943628
 BoxCollider:
   m_ObjectHideFlags: 0

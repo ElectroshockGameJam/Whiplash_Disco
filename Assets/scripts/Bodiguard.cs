@@ -7,6 +7,8 @@ public class Bodiguard : MonoBehaviour {
     public Collider powerUpGenerator;
     public Collider powerUp;
     public GameManager gameManager;
+    public AudioSource audiosource;
+    public AudioClip audioScream;
 
 	private void OnTriggerEnter(Collider collision)
 	{
@@ -15,6 +17,8 @@ public class Bodiguard : MonoBehaviour {
             Destroy (collision.gameObject);
 			ScoreManager.scoreManager.addCoins();
 			ScoreManager.scoreManager.addPoint();
+            audiosource.clip = audioScream;
+            audiosource.Play();
 
             if ( Random.Range( 0, 6 ) == 0 ) generatePowerUp();
 		}
