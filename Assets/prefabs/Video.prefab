@@ -344,17 +344,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385011800928142}
-  m_LocalRotation: {x: -0.10347581, y: -0, z: -0, w: 0.99463207}
-  m_LocalPosition: {x: 52, y: 746, z: 2122}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalRotation: {x: 0.005536437, y: -0, z: -0, w: 0.99998474}
+  m_LocalPosition: {x: -88, y: 1021.33057, z: 2528}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224152061294366920}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -11.879001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.634, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: 746}
-  m_SizeDelta: {x: 1366, y: 768}
+  m_AnchoredPosition: {x: -88, y: 1021.33057}
+  m_SizeDelta: {x: 1366, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &328401254404649442
 VideoPlayer:
