@@ -26,6 +26,7 @@ public class Bodiguard : MonoBehaviour {
         Vector3 position = new Vector3( x, 4, z );
         Collider obj = (Collider) Instantiate ( powerUpGenerator, position, Quaternion.identity );
         obj.gameObject.GetComponent<GenerateTemporalPowerUp>().powerUp = powerUp;
+        obj.gameObject.GetComponent<GenerateTemporalPowerUp>().gameManager = gameManager;
     }
 
 }

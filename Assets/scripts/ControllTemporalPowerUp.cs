@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ControllTemporalPowerUp : MonoBehaviour {
     private float timer;
+    [HideInInspector] public GameManager gameManager;
 	// Use this for initialization
 	void Start () {
 		timer = 0;
@@ -22,6 +23,7 @@ public class ControllTemporalPowerUp : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag ("Enemy") ) {
             Destroy (collision.gameObject);
+            gameManager.killPlayer();
         }
     }
 }
