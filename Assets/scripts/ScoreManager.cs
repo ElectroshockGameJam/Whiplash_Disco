@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour {
     private int life_points = 4;
     private int coins = 0;
     private int points = 0;
+    private bool inmortal = false;
 
     public Canvas GameOverCanvas;
     [HideInInspector] public bool gameOver = false;
@@ -30,6 +31,17 @@ public class ScoreManager : MonoBehaviour {
 		pointsText.text = points + ""; 
 		coinsText.text = coins + "";
         GameOverCanvas.gameObject.SetActive(false);
+    }
+
+    void Update() {
+        if( Input.GetKeyDown(KeyCode.I ) && Input.GetKeyDown(KeyCode.P ) ){
+            inmortal = true;
+            Debug.Log( "Cheat Activatetd");
+        }
+        if( Input.GetKeyDown(KeyCode.O ) && Input.GetKeyDown(KeyCode.P ) ){
+            inmortal = false;
+            Debug.Log( "Cheat Deactivatetd");
+        }
     }
 
 	public void addPoint(){
@@ -68,7 +80,11 @@ public class ScoreManager : MonoBehaviour {
 		life_pointsText.text = life_points + "";
 		//Debug.Log( life_points );
 
-        if(life_points <= 0)
+        if( life_points <= 0 && inmortal ){
+            life_points = 4;
+        }
+
+        if(life_points <= 0 )
         {
             gameOver = true;
             GameOverCanvas.GetComponentInChildren<GameOverMenu>().SetPoints(points);
