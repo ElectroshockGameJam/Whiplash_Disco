@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             obj.name = " " + Time.deltaTime;
 
             obj.gameObject.SetActive(true);
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(6.0f);
             spawned++;
         }
 

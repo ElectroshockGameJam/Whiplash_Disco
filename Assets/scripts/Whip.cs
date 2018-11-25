@@ -158,8 +158,12 @@ public class Whip : MonoBehaviour
     private IEnumerator enemyAgentEnable(Rigidbody rb)
     {
         yield return new WaitForSeconds(stunTime);
-        rb.isKinematic = true;
-        rb.gameObject.GetComponent<NavMeshAgent>().enabled = true;
-        rb.gameObject.GetComponent<MoveTo>().enabled = true;
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+            rb.gameObject.GetComponent<MoveTo>().enabled = true;
+        }
     }
+
 }
