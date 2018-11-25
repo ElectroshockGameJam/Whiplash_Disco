@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
         actualLevel = 1;
         waveText.text = "";
         waveState = WaveStatus.spawn;
+
+        Random.InitState((int)System.DateTime.Now.Ticks);
     }
 
     // Update is called once per frame
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
 
             int transfInd = Random.Range(0, respawnPsitions.Length);
             int objectInd = Random.Range(0, enemys.Length);
+            Debug.Log("Enemy num: " + objectInd);
 
             Rigidbody obj = (Rigidbody)Instantiate(enemys[objectInd], respawnPsitions[transfInd].position, Quaternion.identity);
             obj.gameObject.GetComponent<MoveTo>().goal = Player;
