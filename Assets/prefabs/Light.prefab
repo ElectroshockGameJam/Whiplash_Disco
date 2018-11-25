@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4258586025736526}
   - component: {fileID: 82079366800465780}
+  - component: {fileID: 114125161204996578}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -187,6 +188,23 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114125161204996578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363543092555830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffc345adbdee4ea185b2b9ecc77bb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: f0bdac7c175ebbe4abe2f18cd4b51ab3, type: 3}
+  - {fileID: 8300000, guid: 89c7b7a00878be845a0c9f5e003fc6ce, type: 3}
+  - {fileID: 8300000, guid: 277c1ccff0be5904097593f75805f8ce, type: 3}
+  - {fileID: 8300000, guid: ef623baf93d79064e88ba849a1d078bc, type: 3}
+  - {fileID: 8300000, guid: 55f3093a79f607e4d9d2fd686d28b11e, type: 3}
 --- !u!114 &114501560882819262
 MonoBehaviour:
   m_ObjectHideFlags: 1

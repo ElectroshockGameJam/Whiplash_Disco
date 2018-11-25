@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GenerateTemporalPowerUp : MonoBehaviour {
 
-    public Collider powerUp;
+    [HideInInspector] public Collider powerUp;
 
     private void OnTriggerEnter(Collider collision)
     {
