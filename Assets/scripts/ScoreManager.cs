@@ -62,9 +62,15 @@ public class ScoreManager : MonoBehaviour {
 		return coins;
 	}
 
+    public void addLife()
+    {
+        life_points++;
+        life_pointsText.text = life_points + "";
+    }
+
     public bool buyPowerup(int price)
     {
-        if (price < coins)
+        if (price <= coins)
         {
             coins -= price;
             coinsText.text = coins.ToString();
