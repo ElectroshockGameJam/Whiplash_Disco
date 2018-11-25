@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Time.timeScale == 0.0f)
+            return;
+
 		int rotationValue;
 		changed = 0;
 		if (!WhipScript.charging && !ScoreManager.scoreManager.gameOver) {
