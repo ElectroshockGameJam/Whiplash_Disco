@@ -43,21 +43,25 @@ public class PlayerMovement : MonoBehaviour {
 				changed = 1;
 				animator.SetFloat ("movement", 3.0f);
 			}
-
-			if (changed == 0) {
-				animator.SetBool ("charge", false);
-			}
 		} 
 
 		if (WhipScript.charging) {
 			animator.SetBool ("charge", true);
 			changed = 1;
 		}
+        else
+        {
+            animator.SetBool("charge", false);
+        }
 
-		//Code for changing the player orientation
-		if( ( Input.GetKey("up") || Input.GetAxis("Vertical_View") > 0.3 ) && pos != Position.BACK ){
+        if (changed == 0)
+        {
+            animator.SetFloat("movement", 0.0f);
+        }
 
-			changed = 1;
+        //Code for changing the player orientation
+        if ( ( Input.GetKey("up") || Input.GetAxis("Vertical_View") > 0.3 ) && pos != Position.BACK ){
+            
 			animator.SetInteger ("orientation", 2);
 
 			if( pos == Position.FRONT ) rotationValue = 180;
@@ -68,7 +72,6 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		else if( ( Input.GetKey("down") || Input.GetAxis("Vertical_View") < -0.3 ) && pos != Position.FRONT ){
 			
-			changed = 1;
 			animator.SetInteger ("orientation", 0);
 
 			if( pos == Position.BACK ) rotationValue = 180;
@@ -78,8 +81,7 @@ public class PlayerMovement : MonoBehaviour {
 			gameObject.transform.GetChild(0).Rotate( Vector3.up*rotationValue );
 		}
 		else if( ( Input.GetKey("left") || Input.GetAxis("Horizontal_View") > 0.3 ) && pos != Position.LEFT ){
-
-			changed = 1;
+            
 			animator.SetInteger ("orientation", 3);
 
 			if( pos == Position.RIGHT ) rotationValue = 180;
@@ -89,8 +91,7 @@ public class PlayerMovement : MonoBehaviour {
 			gameObject.transform.GetChild(0).Rotate( Vector3.up*rotationValue );
 		}
 		else if( ( Input.GetKey("right") || Input.GetAxis("Horizontal_View") < -0.3 ) && pos != Position.RIGHT ){
-
-			changed = 1;
+            
 			animator.SetInteger ("orientation", 1);
 
 			if( pos == Position.LEFT ) rotationValue = 180;
@@ -98,11 +99,6 @@ public class PlayerMovement : MonoBehaviour {
 			else rotationValue = 90;
 			pos = Position.RIGHT;
 			gameObject.transform.GetChild(0).Rotate( Vector3.up*rotationValue );
-		}
-
-		if (changed == 0) {
-
-			animator.SetFloat ("movement", 0.0f);
 		}
 	}
 }
