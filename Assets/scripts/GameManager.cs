@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     public PlayVideo video;
 
+    private int hours;
+
     private float diff;
     // Use this for initialization
     void Start()
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
         actualLevel = 1;
         waveText.text = "";
         waveState = WaveStatus.spawn;
+        hours = 22;
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class GameManager : MonoBehaviour
         {
             case WaveStatus.prepare:
                 video.StartVideo();
-                waveText.text = "Prepare for the next wave...";
+                waveText.text = "Prepare for the next wave...\n" + MinutesToString();
                 StartCoroutine( PrepareWave() );
                 actualLevel++;
                 waveState = WaveStatus.preparing;
@@ -116,5 +119,11 @@ public class GameManager : MonoBehaviour
     public void killPlayer()
     {
         enemiesToEndWave--;
+    }
+
+    private string MinutesToString()
+    {
+        hours = (hours + 1) % 24;
+        return hours.ToString() + ":00";
     }
 }
