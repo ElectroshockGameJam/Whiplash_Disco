@@ -9,10 +9,22 @@ public class Bodiguard : MonoBehaviour {
     public GameManager gameManager;
     public AudioSource audiosource;
     public AudioClip audioScream;
+	public Animator animator;
+	private float time;
+
+	void Update(){
+		time += Time.timeScale;
+		if (time >= 3) {
+			animator.SetBool ("throw", false);
+		}
+	}
 
 	private void OnTriggerEnter(Collider collision)
 	{
 		if (collision.gameObject.CompareTag ("Enemy")) {
+			time = 0;
+			animator.SetBool ("throw", true);
+
             gameManager.killPlayer();
             Destroy (collision.gameObject);
 			ScoreManager.scoreManager.addCoins();
