@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateTemporalPowerUp : MonoBehaviour {
-
     [HideInInspector] public Collider powerUp;
     [HideInInspector] public GameManager gameManager;
     private bool spawned = false;
+    private float timer;
+
+    void Start () {
+        timer = 0;
+    }
+    
+    // Update is called once per frame
+    void Update () {
+        timer += Time.deltaTime;
+        if( timer >= 8 ){
+            Destroy( gameObject );
+        }
+        
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
