@@ -6,11 +6,13 @@ public class Bodiguard : MonoBehaviour {
 
     public Collider powerUpGenerator;
     public Collider powerUp;
+    public GameManager gameManager;
 
 	private void OnTriggerEnter(Collider collision)
 	{
 		if (collision.gameObject.CompareTag ("Enemy")) {
-			Destroy (collision.gameObject);
+            gameManager.killPlayer();
+            Destroy (collision.gameObject);
 			ScoreManager.scoreManager.addCoins();
 			ScoreManager.scoreManager.addPoint();
 

@@ -13,6 +13,9 @@ public class ScoreManager : MonoBehaviour {
     private int coins = 0;
     private int points = 0;
 
+    public Canvas GameOverCanvas;
+    [HideInInspector] public bool gameOver = false;
+
 	// Use this for initialization
 	void Start () {
 		if( scoreManager == null ){
@@ -20,12 +23,14 @@ public class ScoreManager : MonoBehaviour {
 			Object.DontDestroyOnLoad(this);
 		}
 		else{
-			Destroy(this);
+			Destroy(gameObject);
 		}
-		life_pointsText.text = life_points + "";
+        
+        life_pointsText.text = life_points + "";
 		pointsText.text = points + ""; 
 		coinsText.text = coins + "";
-	}
+        GameOverCanvas.gameObject.SetActive(false);
+    }
 
 	public void addPoint(){
 		points += 1;
@@ -62,10 +67,32 @@ public class ScoreManager : MonoBehaviour {
 		life_points--;
 		life_pointsText.text = life_points + "";
 		//Debug.Log( life_points );
+
+        if(life_points <= 0)
+        {
+            gameOver = true;
+            GameOverCanvas.GetComponentInChildren<GameOverMenu>().SetPoints(points);
+            GameOverCanvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
 	}
 
 	public int getLifePoints(){
 		return life_points;
 	}
 	
+    public void restart()
+    {
+        life_points = 4;
+        coins = 0;
+        points = 0;
+
+        life_pointsText.text = life_points + "";
+        pointsText.text = points + "";
+        coinsText.text = coins + "";
+        
+        GameOverCanvas.gameObject.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
 }
