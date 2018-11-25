@@ -15,7 +15,8 @@ public class Bodiguard : MonoBehaviour {
 	void Update(){
 		time += Time.timeScale;
 		if (time >= 3) {
-			animator.SetBool ("throw", false);
+            if(animator != null)
+			    animator.SetBool ("throw", false);
 		}
 	}
 
@@ -23,7 +24,9 @@ public class Bodiguard : MonoBehaviour {
 	{
 		if (collision.gameObject.CompareTag ("Enemy")) {
 			time = 0;
-			animator.SetBool ("throw", true);
+
+            if (animator != null)
+                animator.SetBool ("throw", true);
 
             gameManager.killPlayer();
             Destroy (collision.gameObject);
