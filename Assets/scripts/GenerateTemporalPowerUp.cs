@@ -3,10 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateTemporalPowerUp : MonoBehaviour {
-
     [HideInInspector] public Collider powerUp;
     [HideInInspector] public GameManager gameManager;
     private bool spawned = false;
+    private float timer;
+    private Renderer rend;
+    private bool showing;
+
+    void Start () {
+        showing = true;
+        timer = 0;
+        rend = transform.GetChild(0).GetComponent<Renderer>();
+    }
+    
+    // Update is called once per frame
+    void Update () {
+        timer += Time.deltaTime;
+        if( timer >= 8 ){
+            Destroy( gameObject );
+        }
+
+        if( timer >= 5 ){
+            showing = !showing;
+            rend.enabled = showing;
+        } 
+        
+    }
 
     private void OnTriggerEnter(Collider collision)
     {

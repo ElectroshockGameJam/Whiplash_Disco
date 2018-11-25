@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4384738713994272}
-  - component: {fileID: 114499034522326204}
+  - component: {fileID: 114249720725896424}
   m_Layer: 5
   m_Name: Video
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308392492201626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.945542, y: 4.6276746, z: 5.085129}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4484030371757342}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114499034522326204
+--- !u!114 &114249720725896424
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308392492201626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86e4020e3ea2aa42b620ebbdaabc4e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bcbe91d51789d54f8ec3b13ab3276c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rawImage: {fileID: 114582154396789074}
@@ -344,17 +344,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385011800928142}
-  m_LocalRotation: {x: -0.10347581, y: -0, z: -0, w: 0.99463207}
-  m_LocalPosition: {x: 52, y: 746, z: 2122}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalRotation: {x: 0.005536437, y: -0, z: -0, w: 0.99998474}
+  m_LocalPosition: {x: -88, y: 1021.33057, z: 2528}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224152061294366920}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -11.879001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.634, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: 746}
-  m_SizeDelta: {x: 1366, y: 768}
+  m_AnchoredPosition: {x: -88, y: 1021.33057}
+  m_SizeDelta: {x: 1366, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &328401254404649442
 VideoPlayer:
@@ -363,7 +363,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308954907002338}
   m_Enabled: 1
-  m_VideoClip: {fileID: 0}
+  m_VideoClip: {fileID: 32900000, guid: 5049728598d8342408fb1ee40db635c9, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -373,15 +373,17 @@ VideoPlayer:
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 4
   m_AspectRatio: 2
-  m_DataSource: 1
+  m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 1
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: file://C:/Users/Jordi/Documents/whiplash-disco/Assets/video/floorAnimation.mp4
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
