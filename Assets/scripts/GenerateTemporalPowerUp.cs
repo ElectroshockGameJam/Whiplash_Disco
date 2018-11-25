@@ -7,9 +7,13 @@ public class GenerateTemporalPowerUp : MonoBehaviour {
     [HideInInspector] public GameManager gameManager;
     private bool spawned = false;
     private float timer;
+    private Renderer rend;
+    private bool showing;
 
     void Start () {
+        showing = true;
         timer = 0;
+        rend = transform.GetChild(0).GetComponent<Renderer>();
     }
     
     // Update is called once per frame
@@ -18,6 +22,11 @@ public class GenerateTemporalPowerUp : MonoBehaviour {
         if( timer >= 8 ){
             Destroy( gameObject );
         }
+
+        if( timer >= 5 ){
+            showing = !showing;
+            rend.enabled = showing;
+        } 
         
     }
 
