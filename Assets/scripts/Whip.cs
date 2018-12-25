@@ -19,6 +19,7 @@ public class Whip : MonoBehaviour
     public AudioSource audiosource;
     public AudioClip audioCharging;
     public AudioClip audioWhip;
+    public GameObject WhipSplash;
 
     void Update()
     {
@@ -50,6 +51,8 @@ public class Whip : MonoBehaviour
                 if (rb)
                 {
                     ApplyForce(rb, timeCharged);
+                    GameObject effect = Instantiate(WhipSplash, rb.position, Quaternion.identity);
+                    effect.GetComponent<ParticleSystem>().Play();
                 }
             }
         }
