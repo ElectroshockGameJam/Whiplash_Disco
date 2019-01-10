@@ -288,53 +288,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1000, y: -562}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &95675683
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384738713994272, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 223510881188376060, guid: faefb877bf2405344a13c4a748e71609,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 806365259}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: faefb877bf2405344a13c4a748e71609, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &101002298
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +330,7 @@ MonoBehaviour:
   speed: 6
   factor: 2
   countdown: 10
-  video: {fileID: 1129469587}
+  video: {fileID: 0}
 --- !u!4 &101002300
 Transform:
   m_ObjectHideFlags: 0
@@ -2574,12 +2527,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.38, y: 5, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1129469587 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114249720725896424, guid: faefb877bf2405344a13c4a748e71609,
-    type: 2}
-  m_PrefabInternal: {fileID: 95675683}
-  m_Script: {fileID: 11500000, guid: 2bcbe91d51789d54f8ec3b13ab3276c7, type: 3}
 --- !u!1 &1230184011
 GameObject:
   m_ObjectHideFlags: 0
@@ -4174,6 +4121,7 @@ MonoBehaviour:
   audiosource: {fileID: 165155029}
   audioCharging: {fileID: 8300000, guid: 383228d820ea3472fa838519a09f35b0, type: 3}
   audioWhip: {fileID: 8300000, guid: e1caaa0dc2e2d40358793166c2c050c3, type: 3}
+  WhipSplash: {fileID: 1223388885055844, guid: d178580d537174bca9e3c5a11254fb28, type: 3}
 --- !u!136 &1707441113
 CapsuleCollider:
   m_ObjectHideFlags: 0
