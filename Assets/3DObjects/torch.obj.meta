@@ -1,39 +1,21 @@
 fileFormatVersion: 2
-guid: 3b92712d0151a416da585320d7cc5962
-timeCreated: 1547142959
+guid: 22936a9e5395b4081b8cdff535f4afdd
+timeCreated: 1547168681
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
-    100002: Lamp
-    100004: Sphere
-    100006: //RootNode
-    100008: Cylinder.002
-    400000: Camera
-    400002: Lamp
-    400004: Sphere
-    400006: //RootNode
-    400008: Cylinder.002
-    2000000: Camera
-    2100000: No Name
-    2300000: Sphere
-    2300002: Cylinder.002
-    2300004: //RootNode
-    3300000: Sphere
-    3300002: Cylinder.002
-    3300004: //RootNode
-    4300000: Sphere
-    4300002: Cylinder.002
-    4300004: Cylinder
-    6400000: //RootNode
-    10800000: Lamp
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2100000: None
+    2100002: None_red.jpg
+    2100004: None_metal2.jpg
+    2300000: default
+    3300000: default
+    4300000: default
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -65,7 +47,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

@@ -1999,6 +1999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225dadd4fe878a942b57e04c475a95c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchGenerator: {fileID: 135299166871633612, guid: 11d07ecab39e0415c83b9a8527bc07e9,
+    type: 2}
   powerUpGenerator: {fileID: 135671073154720962, guid: 7714bf8e23ee44eae844d2fcb8c80525,
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
@@ -2508,6 +2510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225dadd4fe878a942b57e04c475a95c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchGenerator: {fileID: 135299166871633612, guid: 11d07ecab39e0415c83b9a8527bc07e9,
+    type: 2}
   powerUpGenerator: {fileID: 135671073154720962, guid: 7714bf8e23ee44eae844d2fcb8c80525,
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
@@ -2842,6 +2846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225dadd4fe878a942b57e04c475a95c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchGenerator: {fileID: 0}
   powerUpGenerator: {fileID: 135671073154720962, guid: 7714bf8e23ee44eae844d2fcb8c80525,
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
@@ -3287,6 +3292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225dadd4fe878a942b57e04c475a95c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchGenerator: {fileID: 135299166871633612, guid: 11d07ecab39e0415c83b9a8527bc07e9,
+    type: 2}
   powerUpGenerator: {fileID: 135671073154720962, guid: 7714bf8e23ee44eae844d2fcb8c80525,
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}
@@ -4830,6 +4837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225dadd4fe878a942b57e04c475a95c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchGenerator: {fileID: 135299166871633612, guid: 11d07ecab39e0415c83b9a8527bc07e9,
+    type: 2}
   powerUpGenerator: {fileID: 135671073154720962, guid: 7714bf8e23ee44eae844d2fcb8c80525,
     type: 2}
   powerUp: {fileID: 135368628317393834, guid: a542d8f9e14fb4bc195033783449eacb, type: 2}

@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         switch (waveState)
         {
             case WaveStatus.prepare:
-                video.StartVideo();
+                //video.StartVideo();
                 waveText.text = "Prepare for the next wave...\n" + MinutesToString();
                 StartCoroutine( PrepareWave() );
                 actualLevel++;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             i--;
         }
         waveText.text = "";
-        video.PauseVideo();
+        //video.PauseVideo();
         waveState = WaveStatus.spawn;
     }
 

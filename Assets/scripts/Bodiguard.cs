@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bodiguard : MonoBehaviour {
 
+    public Collider torchGenerator;
     public Collider powerUpGenerator;
     public Collider powerUp;
     public GameManager gameManager;
@@ -35,6 +36,7 @@ public class Bodiguard : MonoBehaviour {
             int random = Random.Range( 0, 6 );
             Debug.Log( random );
             if ( random == 0 ) generatePowerUp();
+            if (random == 1 )generateTorch();
             audiosource.clip = audioScream;
             audiosource.Play();
 		}
@@ -47,6 +49,13 @@ public class Bodiguard : MonoBehaviour {
         Collider obj = (Collider) Instantiate ( powerUpGenerator, position, Quaternion.identity );
         obj.gameObject.GetComponent<GenerateTemporalPowerUp>().powerUp = powerUp;
         obj.gameObject.GetComponent<GenerateTemporalPowerUp>().gameManager = gameManager;
+    }
+
+    private void generateTorch(){
+        float x = Random.Range( -10, 10 );
+        float z = Random.Range( -10, 10 );
+        Vector3 position = new Vector3( x, 4, z );
+        Collider obj = (Collider) Instantiate ( torchGenerator, position, Quaternion.identity );
     }
 
 }
