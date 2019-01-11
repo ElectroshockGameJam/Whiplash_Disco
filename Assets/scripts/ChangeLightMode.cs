@@ -51,6 +51,7 @@ public class ChangeLightMode : MonoBehaviour {
 			timer += Time.deltaTime;
 			Debug.Log ("Tiempo luz: " + timer);
 			if (timer >= 1) {
+				timer = 0;
 				stopLights ();
 			}
 			tiempo = Time.realtimeSinceStartup;
