@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135299166871633612}
   m_Layer: 0
   m_Name: torch
-  m_TagString: Untagged
+  m_TagString: PowerDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -99,7 +98,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -126,6 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7073313a49b48929e152fae389ad99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  light: {fileID: 4563313015128042, guid: 52a1f9b86512b68429cdfcf72c2c73c0, type: 2}
+  spotLights: {fileID: 4202571327484796, guid: bc15dec487006b14987856b23e28ff69, type: 2}
+  colorsList: []
+  time_between: 1
 --- !u!135 &135299166871633612
 SphereCollider:
   m_ObjectHideFlags: 1

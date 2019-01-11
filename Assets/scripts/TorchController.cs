@@ -22,12 +22,4 @@ public class TorchController : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag ("Player")) {
-            //Light function by Oussama
-            Destroy( gameObject );
-        }
-    }
-
 }
